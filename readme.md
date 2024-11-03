@@ -5,7 +5,7 @@ Simplified and Secure Messaging
 To get started with Mail Bot, follow these easy steps:
 
 1. **Configure your bot**: Add your bot ID, server ID, and prefix in `JSON/config.json`.
-2. **Add your bot token**: Create a file named TOKEN with your bot token.
+2. **Add your bot token**: Create a file named `.env` (Must name "TOKEN").
 3. **Test the bot**: Use the prefix command to see how the bot works, e.g., `(prefix)example`.
 
 ### About Mail Bot
