@@ -14,6 +14,7 @@ Mail Bot is a powerful and flexible messaging bot that offers the following feat
 **Messaging Options**
 - Send messages using embeds or regular messages
 - Choose who sends the message: you, a nickname, or unknown
+
 **Blacklist Management**
 - Add or remove users from the blacklist with ease
 **Message Scanning**
