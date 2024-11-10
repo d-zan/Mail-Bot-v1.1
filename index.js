@@ -33,9 +33,7 @@ const handlerFiles = fs
 * https://dsc.gg/dzan-portfolio
 
 */
-//const handlerFolder = ['handler']
 handlerFiles.forEach(() => {
-  // const nestedFolderPath = path.join(subfolderPath, nestedFolder);
   fs.readdir(handlerPath, (err, files) => {
     if (err) {
       return console.error(`error : ${handlerPath}: ${err.message}`);
@@ -99,7 +97,7 @@ client.on("interactionCreate", async (interaction) => {
   try {
     await command.execute(interaction);
   } catch (error) {
-    console.error(error);
+    console.log(`ERROR_RUN_CMD [NAME:${interaction.commandName}]: ERROR: ${error}`);
     await interaction.reply({
       content: "There was an error while executing this command!",
       ephemeral: true,
