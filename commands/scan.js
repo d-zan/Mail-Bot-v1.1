@@ -11,6 +11,7 @@ const blacklist = require("../database/blacklist");
 const wait = require("node:timers/promises").setTimeout;
 const client = require("../JSON/client");
 const { MessageEmbed} = require("discord.js");
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("scan")
@@ -31,10 +32,11 @@ module.exports = {
     ),
   async execute(interaction) {
 
+ const { options } = interaction;
+    const reportNumber = options.getString("report_number",true);
+    const id = options.getString("id",true);
+    const block = blacklist.get(`block:${id}`);
 
-    const reportNumber = interaction.options.getString("report_number");
-    const id = interaction.options.getString("id");
-    const block = await blacklist.get(`block:${id}`);
 if (!block) {
    await interaction.reply("حدث مشكله ف استخراج  رقم الشكوي من القائمه السوداء");
    return;
@@ -55,7 +57,7 @@ Reason:${reason}
 .setTimestamp()
 .setFooter("That for admin")
 await interaction.channel.send({embeds:[embed]});
-await interaction.reply({content:reporter,ephemeral:true});
+await interaction.reply({content:` تم التبليغ بواسطة: ${reporter}`,ephemeral:true});
 }
 
 
