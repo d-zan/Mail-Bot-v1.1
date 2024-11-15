@@ -30,9 +30,9 @@ module.exports = {
       dzan.setName("reporter").setDescription("منشن المبلغ").setRequired(true)
     ),
   async execute(interaction) {
-    const id = interaction.options.getString("id");
-    const reason = interaction.options.getString("reason");
-    const user = interaction.options.getUser("reporter");
+    const id = interaction.options.getString("id",true);
+    const reason = interaction.options.getString("reason",true);
+    const user = interaction.options.getUser("reporter",true);
     const ISblacklist = blacklist.get(id);
     if (user.bot) {
       await interaction.reply("How reporter is bot?");
@@ -51,9 +51,7 @@ if (ISblacklist === true) {
         ],
       });
       return;
-} 
-  
-if (!ISblacklist) {
+} else {
  blacklist.set(id, true);
 
       await interaction.reply({
