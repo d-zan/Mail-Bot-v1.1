@@ -115,3 +115,9 @@
 ```diff
 + Improve the help command
 ```
+---
+## 2.3.14
+```diff
++ Add encrypted messages
++ Add enc-mail command
+```
